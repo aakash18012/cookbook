@@ -2,7 +2,7 @@
     <div class="container">
         <div class="user signinBx">
             <div class="imgBx">
-                <img src="https://raw.githubusercontent.com/WoojinFive/CSS_Playground/master/Responsive%20Login%20and%20Registration%20Form/img1.jpg"
+                <img src="assets/img1.jpeg"
                     alt="" />
             </div>
             <div class="formBx">
@@ -10,14 +10,19 @@
                     <h2>Sign In</h2>
                     <div>
                         <input type="text" name="username" placeholder="Username" formControlName="username"/>
-                        <div
-                            *ngIf="loginForm.get('username')?.touched">
+                        <small
+                            *ngIf="loginForm.get('username')?.touched && loginForm.get('username')?.invalid">
                             Username is <strong>required</strong>.
-                        </div>
+                        </small>
                     </div>
-
-
-                    <input type="password" name="" placeholder="Password" />
+                    <div>
+                        <input type="password" name="" placeholder="Password" formControlName="password"/>
+                        <small
+                            *ngIf="loginForm.get('username')?.touched && loginForm.get('username')?.invalid">
+                            Username is <strong>required</strong>.
+                        </small>
+                    </div>
+                    
                     <input type="submit" name="" value="Login" />
                     <p class="signup">
                         Don't have an account ?
@@ -37,7 +42,7 @@
                     <input type="submit" name="" value="Sign Up" />
                     <p class="signup">
                         Already have an account ?
-                        <a href="#" onclick="toggleForm();">Sign in.</a>
+                        <a   [routerLink]="['/signup']">Sign up.</a>
                     </p>
                 </form>
             </div>
