@@ -2,7 +2,7 @@
     <div class="container">
         <div class="user signinBx">
             <div class="imgBx">
-                <img src="https://raw.githubusercontent.com/WoojinFive/CSS_Playground/master/Responsive%20Login%20and%20Registration%20Form/img1.jpg"
+                <img src="assets/img1.jpeg"
                     alt="" />
             </div>
             <div class="formBx">
@@ -10,40 +10,27 @@
                     <h2>Sign In</h2>
                     <div>
                         <input type="text" name="username" placeholder="Username" formControlName="username"/>
-                        <div
-                            *ngIf="loginForm.get('username')?.touched">
+                        <small
+                            *ngIf="loginForm.get('username')?.touched && loginForm.get('username')?.invalid">
                             Username is <strong>required</strong>.
-                        </div>
+                        </small>
                     </div>
-
-
-                    <input type="password" name="" placeholder="Password" />
-                    <input type="submit" name="" value="Login" />
+                    <div>
+                        <input type="password" name="" placeholder="Password" formControlName="password"/>
+                        <small
+                            *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid">
+                            Password is <strong>required</strong>.
+                        </small>
+                    </div>
+                    
+                    <input type="submit" name="" value="Login" (click)="submit(loginForm.value)"/>
                     <p class="signup">
                         Don't have an account ?
-                        <a href="#" onclick="toggleForm();">Sign Up.</a>
+                        <a routerLink="/signup">Sign Up.</a>
                     </p>
                 </form>
             </div>
         </div>
-        <div class="user signupBx">
-            <div class="formBx">
-                <form action="" onsubmit="return false;">
-                    <h2>Create an account</h2>
-                    <input type="text" name="" placeholder="Username" />
-                    <input type="email" name="" placeholder="Email Address" />
-                    <input type="password" name="" placeholder="Create Password" />
-                    <input type="password" name="" placeholder="Confirm Password" />
-                    <input type="submit" name="" value="Sign Up" />
-                    <p class="signup">
-                        Already have an account ?
-                        <a href="#" onclick="toggleForm();">Sign in.</a>
-                    </p>
-                </form>
-            </div>
-            <div class="imgBx"><img
-                    src="https://raw.githubusercontent.com/WoojinFive/CSS_Playground/master/Responsive%20Login%20and%20Registration%20Form/img2.jpg"
-                    alt="" /></div>
-        </div>
+        
     </div>
 </section>
