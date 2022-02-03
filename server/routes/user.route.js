@@ -31,6 +31,8 @@ userRoutes.route('/login').post(function (req, res) {
 function validate(userName,password,users){
   var errorvalueData={
     errorvalue:null,
+    data: null,
+    success: null,
     user:null,
     message:'',
   };

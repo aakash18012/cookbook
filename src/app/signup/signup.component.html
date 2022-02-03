@@ -1,15 +1,38 @@
 <section>
     <div class="container active">
-        
         <div class="user signupBx">
             <div class="formBx">
-                <form action="" >
+                <form action="" [formGroup]="signupForm">
                     <h2>Create an account</h2>
-                    <input type="text" name="" placeholder="Username" />
-                    <input type="email" name="" placeholder="Email Address" />
-                    <input type="password" name="" placeholder="Create Password" />
-                    <input type="password" name="" placeholder="Confirm Password" />
-                    <input type="submit" name="" value="Sign Up" />
+                    <div>
+                        <input type="text" name="username" placeholder="Username" formControlName="username"/>
+                        <small
+                            *ngIf="signupForm.get('username')?.touched && signupForm.get('username')?.invalid">
+                            Username is <strong>required</strong>.
+                        </small>
+                    </div>
+                    <div>
+                        <input type="email" name="email" placeholder="Email Address" formControlName="email"/>
+                        <small
+                            *ngIf="signupForm.get('email')?.touched && signupForm.get('email')?.invalid">
+                            Email is <strong>required</strong>.
+                        </small>
+                    </div>
+                    <div>
+                        <input type="password" name="password" placeholder="Create Password" formControlName="password"/>
+                        <small
+                            *ngIf="signupForm.get('password')?.touched && signupForm.get('password')?.invalid">
+                            Password is <strong>required</strong>.
+                        </small>
+                    </div>
+                    <div>
+                        <input type="password" name="confirmPassword" placeholder="Confirm Password" formControlName="confirmPassword"/>
+                        <small
+                            *ngIf="signupForm.get('confirmPassword')?.touched && signupForm.get('confirmPassword')?.invalid">
+                            Password is <strong>required</strong>.
+                        </small>
+                    </div>
+                    <input type="submit" name="" value="Sign Up" (click)="submit(signupForm.value)"/>
                     <p class="signup">
                         Already have an account ?
                         <a routerLink = "/login">Sign in.</a>
