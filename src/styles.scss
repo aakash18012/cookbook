@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+  --bs-font-sans-serif: 'Rubik', sans-serif;
+}
+
+.container-xxl { max-width: 1530px; }
+
+body {
+  background-image: url("/img/i-like-food.svg");
+  background-color: rgb(243,243,243);
+}
+
+
