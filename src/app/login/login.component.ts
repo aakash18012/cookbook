@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../services/auth/auth.service';
-import { ToastService } from '../services/toast/toast.service';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private router: Router,
     private auth: AuthService,
-    private toastService: ToastService) { }
+    private toastService: ToastrService) { }
 
   ngOnInit(): void {
   }
@@ -30,11 +30,7 @@ export class LoginComponent implements OnInit {
   submit(form: any) {
     this.auth.login(form).subscribe(res=>{
       if(res){
-        this.toastService.add({
-          type: 'success',
-          title: 'Well done!',
-          message: 'This is a success alert'
-        });
+        this.toastService.success('Well done!', 'This is a success alert');
       }
     })
   }

@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 import { LoginRoutingModule } from './login-routing.module';
 import { LoginComponent } from './login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
 import { ToastService } from '../services/toast/toast.service';
 
 
@@ -16,9 +15,8 @@ import { ToastService } from '../services/toast/toast.service';
     CommonModule,
     LoginRoutingModule,
     ReactiveFormsModule,
-    FormsModule,
+    FormsModule
 
-    
   ],
   providers: [ ToastService ]
 })
